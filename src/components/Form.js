@@ -1,6 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Form = (props) => {
+    // Form state
+    const [search, saveSearch] = useState({
+        city: '',
+        country: ''
+    });
+
+    // Extract city and country
+    const { city, country } = search;
+
+    // Puts elements in state
+    const handleChange = e => {
+        // Update state
+        saveSearch({
+            ...search,
+            [e.target.name]: e.target.value
+        })
+    }
+
     return ( 
         <form>
             <div className='input-field col s12'>
@@ -8,6 +26,8 @@ const Form = (props) => {
                     type='text'
                     name='city'
                     id='city'
+                    value={city}
+                    onChange={handleChange}
                 />
                 <label htmlFor='city'>City: </label>
             </div>
@@ -17,6 +37,8 @@ const Form = (props) => {
                 <select
                     name='country'
                     id='country'
+                    value={country}
+                    onChange={handleChange}
                 >
                     <option value='' disabled selected>-- Select a Country --</option>
                     <option value="US">United States</option>
