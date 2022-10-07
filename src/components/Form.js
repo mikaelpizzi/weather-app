@@ -86,6 +86,24 @@ const Form = (props) => {
                     </button> 
                 </div>
             </div>
+
+            <div className='input-field col s12'>
+                <input 
+                    type='submit'
+                    value='Search Weather'
+                    className='wave-effect wave-light btn-large btn-block yellow accent-4'
+                    style={{width: '100%'}}
+                />
+            </div>
+
+            <div className='input-field col s12'>
+                <input 
+                    type='submit'
+                    value='Search Weather'
+                    className='wave-effect wave-light btn-large btn-block yellow accent-4'
+                    style={{width: '100%'}}
+                />
+            </div>
         </form>
      );
 }
