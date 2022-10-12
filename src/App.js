@@ -1,8 +1,25 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import Form from './components/Form';
 import Header from './components/Header';
 
 function App() {
+    // Form state
+    const [search, saveSearch] = useState({
+      city: '',
+      country: ''
+    });
+
+    const [query, saveQuery] = useState(false);
+
+    const { city, country } = search;
+
+    useEffect(() => {
+      const consultAPI = async () => {
+        return;
+      }
+      consultAPI();
+    }, [query])
+
   return (
     <Fragment>
       <Header
@@ -13,7 +30,11 @@ function App() {
         <div className='container'>
           <div className='row'>
             <div className='col m6 s12'>
-              <Form />
+              <Form 
+                search={search}
+                saveSearch={saveSearch}
+                saveQuery={saveQuery}
+              />
             </div>
             <div className='col m6 s12'>
               2

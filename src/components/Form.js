@@ -1,12 +1,6 @@
 import React, { useState } from 'react'
 
-const Form = (props) => {
-    // Form state
-    const [search, saveSearch] = useState({
-        city: '',
-        country: ''
-    });
-
+const Form = ({ search, saveSearch, saveQuery }) => {
     // Error state
     const [error, saveError] = useState(false);
 
@@ -33,6 +27,9 @@ const Form = (props) => {
         }
 
         saveError(false);
+
+        // Pass it to principal component
+        saveQuery(true);
     }
     return ( 
         <form
