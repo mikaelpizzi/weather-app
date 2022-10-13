@@ -25,6 +25,7 @@ function App() {
           const result = await response.json();
   
           saveResult(result);
+          saveQuery(false);
         }
       }
       consultAPI();
