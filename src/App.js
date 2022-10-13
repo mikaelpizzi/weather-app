@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import Form from './components/Form';
 import Header from './components/Header';
+import Weather from './components/Weather';
 
 function App() {
     // Form state
@@ -10,6 +11,7 @@ function App() {
     });
 
     const [query, saveQuery] = useState(false);
+    const [result, saveResult] = useState({});
 
     const { city, country } = search;
 
@@ -22,7 +24,7 @@ function App() {
           const response = await fetch(url);
           const result = await response.json();
   
-          console.log(result);
+          saveResult(result);
         }
       }
       consultAPI();
@@ -45,7 +47,9 @@ function App() {
               />
             </div>
             <div className='col m6 s12'>
-              2
+              <Weather 
+                result={result}
+              />
             </div>
           </div>
         </div>
