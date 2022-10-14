@@ -58,16 +58,17 @@ const Form = ({ search, saveSearch, saveQuery }) => {
                     onChange={handleChange}
                 >
                     <option defaultValue="">-- Select a Country --</option>
-                    <option value="US">United States</option>
-                    <option value="MX">Mexico</option>
                     <option value="AR">Argentina</option>
+                    <option value="CL">Chile</option>
                     <option value="CO">Colombia</option>
                     <option value="CR">Costa Rica</option>
+                    <option value="EE">Estonia</option>
+                    <option value="IT">Italy</option>
+                    <option value="MX">Mexico</option>
                     <option value="ES">Spain</option>
                     <option value="PE">Peru</option>
+                    <option value="US">United States</option>
                     <option value="VE">Venezuela</option>
-                    <option value="IT">Italy</option>
-                    <option value="EE">Estonia</option>
 
 
                 </select>
