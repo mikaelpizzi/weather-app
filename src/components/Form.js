@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Error from './Error';
+import PropTypes from 'prop-types'
 
 const Form = ({ search, saveSearch, saveQuery }) => {
     // Error state
@@ -56,7 +57,7 @@ const Form = ({ search, saveSearch, saveQuery }) => {
                     value={country}
                     onChange={handleChange}
                 >
-                    <option value='' disabled selected>-- Select a Country --</option>
+                    <option defaultValue="">-- Select a Country --</option>
                     <option value="US">United States</option>
                     <option value="MX">Mexico</option>
                     <option value="AR">Argentina</option>
@@ -86,6 +87,12 @@ const Form = ({ search, saveSearch, saveQuery }) => {
             </div>
         </form>
      );
+}
+
+Form.propTypes = {
+    search: PropTypes.object.isRequired,
+    saveSearch: PropTypes.func.isRequired,
+    saveQuery: PropTypes.func.isRequired
 }
  
 export default Form;
