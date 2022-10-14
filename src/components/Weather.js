@@ -13,10 +13,10 @@ const Weather = ({ result }) => {
                 <p className='temperatura'>
                     { parseInt(main.temp - kelvin, 10) } <span>&#x2103;</span>
                 </p>
-                <p>Max Temperature: 
+                <p>Max Temperature:&nbsp;
                     { parseInt(main.temp_max - kelvin, 10) } <span>&#x2103;</span>
                 </p>
-                <p>Min Temperature: 
+                <p>Min Temperature:&nbsp;
                     { parseInt(main.temp_min - kelvin, 10) } <span>&#x2103;</span>
                 </p>
             </div>

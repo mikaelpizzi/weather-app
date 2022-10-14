@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
+import Error from './components/Error';
 import Form from './components/Form';
 import Header from './components/Header';
 import Weather from './components/Weather';
@@ -12,6 +13,7 @@ function App() {
 
     const [query, saveQuery] = useState(false);
     const [result, saveResult] = useState({});
+    const [error, saveError] = useState(false);
 
     const { city, country } = search;
 
@@ -26,10 +28,24 @@ function App() {
   
           saveResult(result);
           saveQuery(false);
+
+          // Detects if everything went good
+          if (result.cod === '404') {
+            saveError(true);
+          } else {
+            saveError(false);
+          }
         }
       }
       consultAPI();
     }, [query])
+
+    let component;
+    if (error) {
+      component = <Error message='No Results' />
+    } else {
+      component = <Weather result={result} />
+    }
 
   return (
     <Fragment>
@@ -48,9 +64,7 @@ function App() {
               />
             </div>
             <div className='col m6 s12'>
-              <Weather 
-                result={result}
-              />
+              {component}
             </div>
           </div>
         </div>
